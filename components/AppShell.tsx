@@ -1,5 +1,17 @@
 'use client'
 
+<<<<<<< HEAD
+import { ReactNode } from 'react'
+
+interface AppShellProps {
+  children: ReactNode
+}
+
+export function AppShell({ children }: AppShellProps) {
+  return (
+    <div className="min-h-screen bg-bg">
+      <div className="container mx-auto px-4 py-8">
+=======
 import { cn } from '../lib/utils'
 
 interface AppShellProps {
@@ -22,8 +34,13 @@ export function AppShell({ children, className }: AppShellProps) {
       
       {/* Content */}
       <div className="relative z-10 flex flex-col h-screen">
+>>>>>>> origin/main
         {children}
       </div>
     </div>
   )
 }
+<<<<<<< HEAD
+
+=======
+>>>>>>> origin/main

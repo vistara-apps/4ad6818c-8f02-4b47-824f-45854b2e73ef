@@ -1,3 +1,11 @@
+<<<<<<< HEAD
+import { GhoNavigator } from '@/components/GhoNavigator'
+
+export default function Home() {
+  return <GhoNavigator />
+}
+
+=======
 import { AppShell } from '../components/AppShell'
 import { AgentChat } from '../components/AgentChat'
 
@@ -24,3 +32,4 @@ export default function HomePage() {
     </AppShell>
   )
 }
+>>>>>>> origin/main
