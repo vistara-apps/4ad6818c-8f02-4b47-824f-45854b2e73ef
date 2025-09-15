@@ -54,18 +54,18 @@ body {
 
 @layer components {
   .btn-primary {
-    @apply bg-primary text-primary-foreground hover:bg-primary/90 px-4 py-2 rounded-md font-medium transition-colors duration-200;
+    @apply bg-blue-600 text-white hover:bg-blue-700 px-4 py-2 rounded-md font-medium transition-colors duration-200;
   }
-  
+
   .btn-secondary {
-    @apply bg-secondary text-secondary-foreground hover:bg-secondary/80 px-4 py-2 rounded-md font-medium transition-colors duration-200;
+    @apply bg-gray-600 text-white hover:bg-gray-700 px-4 py-2 rounded-md font-medium transition-colors duration-200;
   }
-  
+
   .card {
-    @apply bg-card text-card-foreground rounded-lg border shadow-card;
+    @apply bg-gray-800 text-white rounded-lg border border-gray-700;
   }
-  
+
   .input {
-    @apply bg-input border-border text-foreground px-3 py-2 rounded-md border focus:outline-none focus:ring-2 focus:ring-ring;
+    @apply bg-gray-700 border border-gray-600 text-white px-3 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500;
   }
 }

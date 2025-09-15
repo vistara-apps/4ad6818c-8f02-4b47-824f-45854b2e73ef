@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect, useRef } from 'react'
-import { useMiniKit } from '@coinbase/minikit'
+import { useAccount } from 'wagmi'
 import { ChatMessage, AgentState } from '../lib/types'
 import { AGENT_RESPONSES } from '../lib/constants'
 import { generateId, sleep } from '../lib/utils'
@@ -16,10 +16,15 @@ interface AgentChatProps {
 }
 
 export function AgentChat({ variant = 'withTools' }: AgentChatProps) {
-  const { context } = useMiniKit()
+  const { address, isConnected } = useAccount()
+  const isClient = typeof window !== 'undefined'
   const [messages, setMessages] = useState<ChatMessage[]>([])
   const [inputValue, setInputValue] = useState('')
   const [isTyping, setIsTyping] = useState(false)
+
+  if (!isClient) {
+    return <div>Loading...</div>
+  }
   const [agentState, setAgentState] = useState<AgentState>({ step: 'welcome' })
   const messagesEndRef = useRef<HTMLDivElement>(null)
 
@@ -166,9 +171,9 @@ export function AgentChat({ variant = 'withTools' }: AgentChatProps) {
             }`}
           >
             <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 ${
-              message.type === 'user' 
-                ? 'bg-primary' 
-                : 'bg-gradient-to-r from-accent to-primary'
+              message.type === 'user'
+                ? 'bg-blue-600'
+                : 'bg-gradient-to-r from-green-500 to-blue-600'
             }`}>
               {message.type === 'user' ? (
                 <User size={16} className="text-white" />
@@ -181,12 +186,12 @@ export function AgentChat({ variant = 'withTools' }: AgentChatProps) {
             }`}>
               <div className={`inline-block p-3 rounded-lg ${
                 message.type === 'user'
-                  ? 'bg-primary text-primary-foreground'
-                  : 'glass-effect text-foreground'
+                  ? 'bg-blue-600 text-white'
+                  : 'bg-gray-700 text-white'
               }`}>
                 <p className="text-sm leading-relaxed">{message.content}</p>
               </div>
-              <p className="text-xs text-muted-foreground mt-1">
+              <p className="text-xs text-gray-400 mt-1">
                 {new Date(message.timestamp).toLocaleTimeString([], { 
                   hour: '2-digit', 
                   minute: '2-digit' 
@@ -199,14 +204,14 @@ export function AgentChat({ variant = 'withTools' }: AgentChatProps) {
         {/* Typing indicator */}
         {isTyping && (
           <div className="flex gap-3 animate-fade-in">
-            <div className="w-8 h-8 rounded-full bg-gradient-to-r from-accent to-primary flex items-center justify-center">
+            <div className="w-8 h-8 rounded-full bg-gradient-to-r from-green-500 to-blue-600 flex items-center justify-center">
               <Bot size={16} className="text-white" />
             </div>
-            <div className="glass-effect p-3 rounded-lg">
+            <div className="bg-gray-700 p-3 rounded-lg">
               <div className="flex gap-1">
-                <div className="w-2 h-2 bg-muted-foreground rounded-full animate-bounce" />
-                <div className="w-2 h-2 bg-muted-foreground rounded-full animate-bounce" style={{ animationDelay: '0.1s' }} />
-                <div className="w-2 h-2 bg-muted-foreground rounded-full animate-bounce" style={{ animationDelay: '0.2s' }} />
+                <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" />
+                <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }} />
+                <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }} />
               </div>
             </div>
           </div>
@@ -219,7 +224,7 @@ export function AgentChat({ variant = 'withTools' }: AgentChatProps) {
       </div>
 
       {/* Input */}
-      <div className="p-4 border-t border-border">
+      <div className="p-4 border-t border-gray-700">
         <div className="flex gap-2">
           <input
             type="text"

@@ -10,14 +10,14 @@ interface AppShellProps {
 export function AppShell({ children, className }: AppShellProps) {
   return (
     <div className={cn(
-      "min-h-screen max-w-md mx-auto bg-card/50 backdrop-blur-sm border-x border-border",
+      "min-h-screen max-w-md mx-auto bg-gray-900/50 backdrop-blur-sm border-x border-gray-700",
       "flex flex-col relative overflow-hidden",
       className
     )}>
       {/* Background decoration */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 -right-20 w-40 h-40 bg-accent/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 -left-20 w-40 h-40 bg-primary/10 rounded-full blur-3xl" />
+        <div className="absolute top-20 -right-20 w-40 h-40 bg-green-500/10 rounded-full blur-3xl" />
+        <div className="absolute bottom-20 -left-20 w-40 h-40 bg-blue-600/10 rounded-full blur-3xl" />
       </div>
       
       {/* Content */}
