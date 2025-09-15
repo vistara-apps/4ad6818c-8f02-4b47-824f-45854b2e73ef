@@ -4,4 +4,7 @@ module.exports = {
     autoprefixer: {},
   },
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/main
