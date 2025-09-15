@@ -1,0 +1,14 @@
+{
+  "name": "GHO Navigator",
+  "description": "GHO Navigator is a Base Mini App built with Zara.",
+  "image": "https://dummyimage.com/1200x628/0a0b0d/ffffff.png&text=OG",
+  "external_url": "https://4ad6818c-8f02-4b47-824f-45854b2e73ef.vercel.app",
+  "properties": {
+    "app": {
+      "name": "GHO Navigator",
+      "description": "GHO Navigator is a Base Mini App built with Zara.",
+      "url": "https://4ad6818c-8f02-4b47-824f-45854b2e73ef.vercel.app",
+      "icon": "https://0co.to/images/zara-2.png"
+    }
+  }
+}
